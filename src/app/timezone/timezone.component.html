@@ -1,0 +1,8 @@
+
+{{getTimezone()}}
+<br>
+{{getDateTime()}}
+<p>
+    <button (click)="refresh()">Frissítés</button>
+    <button [disabled]="isCurrentTimezone()" (click)="setToCurrentTimezone()">Jelenleginek jelöl</button>
+</p>

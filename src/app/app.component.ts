@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-hazi2';
+  title = '2. heti házi';
+
+  readonly timezone1 = "America/New_York";
+  readonly timezone2 = "Europe/Budapest";
+
+  readonly activeTimezoneComponent: {timezone: string | undefined} = {timezone: undefined};
+
+  currentTimezoneChanged(timezone: string) {
+    this.activeTimezoneComponent.timezone  = timezone;
+  }
 }

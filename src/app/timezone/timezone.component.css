@@ -1,0 +1,12 @@
+.timezoneComponent {
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    padding: 10px;
+    margin: 10px;
+    width: fit-content;
+}
+
+.currentTimezone {
+    background-color: lightblue
+}

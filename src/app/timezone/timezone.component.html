@@ -1,8 +1,10 @@
+<div class="timezoneComponent" [class.currentTimezone] ="isCurrentTimezone">
 
-{{getTimezone()}}
-<br>
-{{getDateTime()}}
-<p>
-    <button (click)="refresh()">Frissítés</button>
-    <button [disabled]="isCurrentTimezone()" (click)="setToCurrentTimezone()">Jelenleginek jelöl</button>
-</p>
+<input [(ngModel)]="timezone" (ngModelChange)="setCurrentTimezone($event)">
+    <br>
+    {{getTimezone() === '' ? '' : getDateTime() | date : 'shortTime'}}
+    <p>
+        <button (click)="refresh()">Frissítés</button>
+        <button [disabled]="isCurrentTimezone" (click)="setToCurrentTimezone()">Jelenleginek jelöl</button>
+    </p>
+</div>

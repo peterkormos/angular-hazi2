@@ -7,9 +7,9 @@ Europe/Budapest
 <br>
 <button *ngIf="timezoneAddEnabled" (click)="addTimezone()" >Új hozzáadása</button>
 <app-timezone 
-*ngFor="let timezone of timezones"
+*ngFor="let timezone of timezones; let idx = index"
 [activeTimezone]="activeTimezone" 
 [timezone]="timezone" 
-[idx]="timezones!.indexOf(timezone)"
+[idx]="idx"
 (activeTimezoneChange)="activeTimezoneChanged($event)"
 ></app-timezone>

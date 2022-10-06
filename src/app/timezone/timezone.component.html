@@ -2,9 +2,9 @@
 
 <input [(ngModel)]="timezone" (ngModelChange)="setCurrentTimezone($event)">
     <br>
-    {{getTimezone() === '' ? '' : getDateTime() | date : 'shortTime'}}
+    {{timezone === '' ? '' : getDateTime() | date : 'shortTime'}}
     <p>
         <button (click)="refresh()">Frissítés</button>
-        <button [disabled]="isCurrentTimezone" (click)="setToCurrentTimezone()">Jelenleginek jelöl</button>
+        <button [disabled]="isCurrentTimezone" (click)="setToActiveTimezone()">Jelenleginek jelöl</button>
     </p>
 </div>

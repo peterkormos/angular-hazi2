@@ -8,16 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = '3. heti házi';
 
-  readonly activeTimezoneComponent: {timezone: string | undefined} = {timezone: undefined};
+  activeTimezone : string | undefined;
   timezones : string[] | undefined;
 
-  currentTimezoneChanged(event : {timezone: string | undefined, idx:number}) {
-    this.activeTimezoneComponent.timezone  = event.timezone;
-    this.timezones![event.idx] = event.timezone!;
+  activeTimezoneChanged(event : {timezone: string, idx:number}) {
+    this.activeTimezone = event.timezone;
+    this.timezones![event.idx] = event.timezone;
   }
 
   get timezoneAddEnabled() {
-    return this.timezones?.length === 5 ? false : true;
+    return this.timezones?.length !== 5;
   }
 
   addTimezone() {

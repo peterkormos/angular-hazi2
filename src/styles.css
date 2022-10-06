@@ -7,3 +7,7 @@ button {
     border-color: transparent;
     margin: 5px;
 }
+
+button:disabled {
+    background-color: grey;
+}

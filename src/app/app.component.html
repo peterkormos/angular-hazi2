@@ -1,4 +1,6 @@
 <h1>{{title}}</h1>
+Timezone példák:
+<br>
 America/New_York
   <br>
 Europe/Budapest
@@ -6,8 +8,8 @@ Europe/Budapest
 <button *ngIf="timezoneAddEnabled" (click)="addTimezone()" >Új hozzáadása</button>
 <app-timezone 
 *ngFor="let timezone of timezones"
-[activeTimezoneComponent]="activeTimezoneComponent" 
+[activeTimezone]="activeTimezone" 
 [timezone]="timezone" 
 [idx]="timezones!.indexOf(timezone)"
-(currentTimezoneChange)="currentTimezoneChanged($event)"
+(activeTimezoneChange)="activeTimezoneChanged($event)"
 ></app-timezone>

@@ -7,8 +7,8 @@ import { EventEmitter, Output, Input, Component, OnInit } from '@angular/core';
 })
 export class TimezoneComponent implements OnInit {
   @Input() timezone: string | undefined;
-  @Input() activeTimezoneComponent: { timezone: string | undefined } | undefined;
-  @Output() currentTimezoneChange = new EventEmitter<{timezone: string | undefined, idx:number}>();
+  @Input() activeTimezone : string | undefined;
+  @Output() activeTimezoneChange = new EventEmitter<{timezone: string, idx:number}>();
   @Input() idx : number = 0;
 
   constructor() {
@@ -19,25 +19,18 @@ export class TimezoneComponent implements OnInit {
   }
 
   get isCurrentTimezone() {
-    return this.activeTimezoneComponent?.timezone === this.timezone;
+    return this.activeTimezone === this.timezone;
   }
   setCurrentTimezone(timezone: string) {
     this.emitEvent();
   }
 
-  setToCurrentTimezone() {
+  setToActiveTimezone() {
     this.emitEvent();
   }
 
   private emitEvent() {
-    const event : {timezone: string | undefined, idx:number}
-     = {timezone : this.timezone, idx: this.idx};
-
-    this.currentTimezoneChange.emit(event);
-  }
-
-  getTimezone() {
-    return this.isCurrentTimezone ? 'Jelenlegi időzóna: ' + this.timezone : this.timezone;
+    this.activeTimezoneChange.emit({timezone : this.timezone!, idx: this.idx});
   }
 
   getDateTime() {
